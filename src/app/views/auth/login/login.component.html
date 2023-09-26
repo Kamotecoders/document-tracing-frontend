@@ -1,0 +1,96 @@
+<button
+  class="btn btn-trnasparent text-white btn-sm px-3"
+  data-bs-toggle="modal"
+  data-bs-target="#loginModal"
+>
+  Login
+</button>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              [ngClass]="
+                loginForm.get('email')?.invalid ? 'is-invalid' : 'form-control'
+              "
+              class="form-control"
+              id="email"
+              formControlName="email"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Email</label>
+
+            <div
+              *ngIf="
+                loginForm.get('email')?.invalid &&
+                loginForm.get('email')?.touched
+              "
+              class="invalid-feedback"
+            >
+              Please enter a valid email address.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              id="password"
+              [ngClass]="
+                loginForm.get('password')?.invalid
+                  ? 'is-invalid'
+                  : 'form-control'
+              "
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">Password</label>
+            <div
+              *ngIf="
+                loginForm.get('password')?.invalid &&
+                loginForm.get('password')?.touched
+              "
+              class="invalid-feedback"
+            >
+              Password must be at least 6 characters long.
+            </div>
+          </div>
+          <button class="btn text-dark fw-normal mb-3" type="button">
+            Forgot Password
+          </button>
+          <button
+            class="btn btn-danger btn-lg"
+            type="submit"
+            [disabled]="loginForm.invalid"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
