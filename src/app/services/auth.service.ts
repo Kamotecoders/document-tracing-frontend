@@ -7,7 +7,7 @@ import { Users } from '../models/Users';
   providedIn: 'root',
 })
 export class AuthService {
-  url = 'localhost:3000/auth/';
+  url = 'http://localhost:3000/auth/';
   constructor(private http: HttpClient) {}
   login(data: any) {
     return this.http.post<Users>(this.url + 'login', data).pipe(delay(1000));

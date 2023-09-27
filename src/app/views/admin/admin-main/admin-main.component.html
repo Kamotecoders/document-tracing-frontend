@@ -1,1 +1,72 @@
-<p>admin-main works!</p>
+<nav class="navigation">
+  <ul>
+    <li routerLink="home" routerLinkActive="active">
+      <a>Home</a>
+    </li>
+    <li routerLink="announcement" routerLinkActive="active">
+      <a>Announcements</a>
+    </li>
+    <li routerLink="contacts" routerLinkActive="active">
+      <a>Contacts</a>
+    </li>
+    <li routerLink="about" routerLinkActive="active">
+      <a>About us</a>
+    </li>
+  </ul>
+</nav>
+
+<main class="bg-light">
+  <div
+    class="d-flex align-items-center justify-content-between p-3 bg-success position-relative"
+  >
+    <div
+      class="col-4 d-flex align-items-center justify-content-start gap-3 text-white"
+      style="height: 48px"
+    >
+      <img
+        src="../../../assets/images/logo.png"
+        width="120px"
+        height="120px"
+        class="rounded-circle"
+        style="position: absolute; left: 0; z-index: 10"
+      />
+      <h1 class="fw-bold fs-2 mt-1" style="margin-left: 7rem">
+        RIZAL-E SERVICE ADMIN DASHBOARD
+      </h1>
+    </div>
+    <div
+      class="col-3 text-end text-white d-flex align-items-center justify-content-end"
+    >
+      <h6 class="mt-2"></h6>
+
+      <div class="dropdown">
+        <img
+          src="../../../../assets/images/logo profile.png1"
+          alt=""
+          height="50px"
+          style="cursor: pointer"
+          class="rounded-circle hover"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        />
+        <ul class="dropdown-menu">
+          <li>
+            <a
+              class="dropdown-item hover d-flex align-items-center justify-content-start gap-2"
+              routerLink=""
+              ><span class="material-symbols-outlined"></span> Profile</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item hover d-flex align-items-center justify-content-start gap-2"
+              routerLink=""
+              ><span class="material-symbols-outlined"></span> Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</main>

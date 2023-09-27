@@ -14,6 +14,13 @@ import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClientHomeComponent } from './views/client/client-home/client-home.component';
+import { VotersComponent } from './views/client/voters/voters.component';
+import { PsaComponent } from './views/client/psa/psa.component';
+import { KasalanComponent } from './views/client/kasalan/kasalan.component';
+import { BurialComponent } from './views/client/burial/burial.component';
+import { DashboardComponent } from './views/client/dashboard/dashboard.component';
+import { AdminHomeComponent } from './views/admin/admin-home/admin-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +34,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     LoginComponent,
     RegisterComponent,
+    ClientHomeComponent,
+    VotersComponent,
+    PsaComponent,
+    KasalanComponent,
+    BurialComponent,
+    DashboardComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,
