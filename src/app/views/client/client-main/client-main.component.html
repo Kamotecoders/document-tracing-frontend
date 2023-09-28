@@ -17,7 +17,7 @@
 
 <main>
   <div
-    class="d-flex align-items-center justify-content-between p-3 bg-success position-relative"
+    class="d-flex align-items-center justify-content-between p-3 bg-success position-relative w-100"
   >
     <div
       class="col-4 d-flex align-items-center justify-content-start gap-3 text-white"
@@ -33,39 +33,7 @@
       <h1 class="fw-bold fs-2 mt-1" style="margin-left: 7rem">
         RIZAL E-SERVICE CLIENT DASHBOARD
       </h1>
-    </div>
-    <div
-      class="col-3 text-end text-white d-flex align-items-center justify-content-end"
-    >
-      <h6 class="mt-2"></h6>
-
-      <div class="dropdown">
-        <img
-          src="../../../../assets/images/logo profile.png1"
-          alt=""
-          height="50px"
-          style="cursor: pointer"
-          class="rounded-circle hover"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        />
-        <ul class="dropdown-menu">
-          <li>
-            <a
-              class="dropdown-item hover d-flex align-items-center justify-content-start gap-2"
-              routerLink=""
-              ><span class="material-symbols-outlined"></span> Profile</a
-            >
-          </li>
-          <li>
-            <a
-              class="dropdown-item hover d-flex align-items-center justify-content-start gap-2"
-              routerLink=""
-              ><span class="material-symbols-outlined"></span> Logout</a
-            >
-          </li>
-        </ul>
-      </div>
+      <button class="btn btn-secondary" (click)="logout()">Logout</button>
     </div>
   </div>
   <router-outlet></router-outlet>
