@@ -1,40 +1,97 @@
-<div class="row justify-content-center gap-5 mt-5">
-  <div class="container-fluid p-3 vh-100">
-    <div class="row h-100">
-      <div class="col-8 h-100">
-        <div class="row h-100">
-          <div class="col-3">
-            <div class="container">
-              <h5>Voter's Certificate</h5>
-            </div>
+<div class="d-flex gap-3 vh-100 p-3">
+  <div class="h-100 w-75">
+    <div class="d-flex flex-column h-100 gap-3">
+      <div class="row">
+        <div class="col">
+          <div class="box bg-success text-white">
+            <h4>{{ getDocumentTypeNumber(1) }}</h4>
+            <h6>Voters Certificate</h6>
           </div>
-          <div class="col-3">
-            <div class="container">
-              <h5>PSA REQUESTS</h5>
-            </div>
+        </div>
+        <div class="col">
+          <div class="box bg-success text-white">
+            <h4>{{ getDocumentTypeNumber(2) }}</h4>
+            <h6>PSA</h6>
           </div>
-          <div class="col-3">
-            <div class="container">
-              <h5>Burial Assistant</h5>
-            </div>
+        </div>
+        <div class="col">
+          <div class="box bg-success text-white">
+            <h4>{{ getDocumentTypeNumber(4) }}</h4>
+            <h6>Burial Assistant</h6>
           </div>
-          <div class="col-3">
-            <div class="container">
-              <h5>Kasalang Bayan</h5>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="container bg-white text-dark">
-              <h5>Recent</h5>
-            </div>
+        </div>
+        <div class="col">
+          <div class="box bg-success text-white">
+            <h4>{{ getDocumentTypeNumber(3) }}</h4>
+            <h6>Kasalang bayan</h6>
           </div>
         </div>
       </div>
-      <div class="col-4">
-        <div class="container bg-white text-dark">
-          <h5>Request</h5>
-        </div>
+
+      <div class="box">
+        <h5 class="text-primary">Appointments</h5>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Outlet</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Purpose</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let appointment of _scheduledAppointments">
+            <tr>
+              <td>{{ appointment.fullname }}</td>
+              <td>{{ appointment.outlet }}</td>
+              <td>{{ appointment.date }}</td>
+              <td>{{ appointment.time }}</td>
+              <td>{{ appointment.purpose }}</td>
+              <td>
+                <span
+                  [ngClass]="{
+                    ' text-primary  ':
+                      appointment.appointmentStatus === 'schedulled',
+                    ' text-success ':
+                      appointment.appointmentStatus === 'complete',
+                    ' text-danger ':
+                      appointment.appointmentStatus === 'decline',
+                    'text-warning ':
+                      appointment.appointmentStatus === 'cancelled'
+                  }"
+                >
+                  {{ appointment.appointmentStatus }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
+  <div class="box flex-grow-1">
+    <h5 class="text-primary">New Request</h5>
+    <ul
+      class="list-group list-group-flush"
+      *ngFor="let appointment of _pendingRequest"
+    >
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <span class="text-dark"
+            >New
+            <span class="text-primary">{{ appointment.purpose }}</span>
+            request</span
+          >
+          <p class="text-secondary">From: {{ appointment.fullname }}</p>
+        </div>
+
+        <app-appointment-form
+          [appointment]="appointment"
+        ></app-appointment-form>
+      </li>
+    </ul>
   </div>
 </div>

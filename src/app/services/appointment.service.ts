@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Users } from '../datasource/models/Users';
 import { LocalStorageService } from './local-storage.service';
+import { Appointment } from '../datasource/models/Appointments';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +17,35 @@ export class AppointmentService {
   ) {
     this.user = localStorageService.getUser('users');
   }
+  updateStatus(
+    id: number,
+    appointmentStatus:
+      | 'pending'
+      | 'schedulled'
+      | 'cancelled'
+      | 'complete'
+      | 'decline'
+  ) {
+    const queryParameters = { id };
 
+    const requestBody = { appointmentStatus };
+
+    return this.http.patch(this.url + 'update-status', requestBody, {
+      params: queryParameters,
+    });
+  }
+  getAllAppointments(): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(this.url).pipe(
+      map((appointments: Appointment[]) => {
+        // Map each appointment and prepend the URL
+        return appointments.map((appointment) => ({
+          ...appointment,
+          government_id:
+            'http://localhost:3000/images/' + appointment.government_id,
+        }));
+      })
+    );
+  }
   requestBurial(validID: File, schedule: Date) {
     const formData = new FormData();
     formData.append('user_id', this.user!.id.toString());

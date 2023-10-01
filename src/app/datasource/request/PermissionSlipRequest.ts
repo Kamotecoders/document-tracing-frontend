@@ -1,1 +1,4 @@
-export interface PermissionSlipRequest {}
+export interface PermissionSlipRequest {
+    
+}
+

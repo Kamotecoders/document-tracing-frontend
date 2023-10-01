@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Users } from 'src/app/datasource/models/Users';
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
@@ -17,7 +18,8 @@ export class LoginComponent {
     private authService: AuthService,
     private fb: FormBuilder,
     private router: Router,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private toastr: ToastrService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -30,16 +32,17 @@ export class LoginComponent {
       next: (v: Users) => {
         this.localStorageService.saveUser('users', v);
         if (v.type === 'admin') {
-          alert('Successfully Logged in..');
+          this.toastr.success('Successfully Logged in..', 'Welcome admin!');
           this.router.navigate(['admin']);
         } else if (v.type === 'user') {
-          alert('Successfully Logged in..');
+          this.toastr.success('Successfully Logged in..', 'Welcome client!');
+
           this.router.navigate(['client']);
         } else {
-          alert('User not found..');
+          this.toastr.warning('User not Found', 'Not Found!');
         }
       },
-      error: (e) => alert(e.message),
+      error: (e) => this.toastr.warning(e.error.message, 'Not Found!'),
     });
   }
 }

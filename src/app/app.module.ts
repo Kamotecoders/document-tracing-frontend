@@ -21,6 +21,11 @@ import { KasalanComponent } from './views/client/kasalan/kasalan.component';
 import { BurialComponent } from './views/client/burial/burial.component';
 import { DashboardComponent } from './views/client/dashboard/dashboard.component';
 import { AdminHomeComponent } from './views/admin/admin-home/admin-home.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,12 +46,15 @@ import { AdminHomeComponent } from './views/admin/admin-home/admin-home.componen
     BurialComponent,
     DashboardComponent,
     AdminHomeComponent,
+    AppointmentFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
