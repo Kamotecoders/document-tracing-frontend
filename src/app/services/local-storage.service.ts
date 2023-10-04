@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Users } from '../datasource/models/Users';
+import { trigger } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root',
@@ -7,8 +8,6 @@ import { Users } from '../datasource/models/Users';
 export class LocalStorageService {
   constructor() {}
 
-  // Implement methods for reading, writing, updating, and deleting data in localStorage
-  // For example:
   getUser(key: string): Users | null {
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : null;
@@ -19,6 +18,6 @@ export class LocalStorageService {
   }
 
   removeUser(key: string): void {
-    localStorage.removeItem(key);
+    localStorage.clear();
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Appointment } from 'src/app/datasource/models/Appointments';
 import { AppointmentService } from 'src/app/services/appointment.service';
@@ -12,8 +13,19 @@ export class AdminHomeComponent {
   _pendingRequest: Appointment[] = [];
   _scheduledAppointments: Appointment[] = [];
   _allAppointment: Appointment[] = [];
-  constructor(private appointmentService: AppointmentService) {
-    appointmentService.getAllAppointments().subscribe({
+  _selectedAppointment: Appointment | null = null;
+  constructor(
+    private appointmentService: AppointmentService,
+    private toastr: ToastrService
+  ) {
+    this.getAllAppointment();
+  }
+
+  setSelected(index: number) {
+    this._selectedAppointment = this._pendingRequest[index];
+  }
+  getAllAppointment() {
+    this.appointmentService.getAllAppointments().subscribe({
       next: (v: Appointment[]) => {
         this._pendingRequest = v.filter(
           (data) => data.appointmentStatus === 'pending'
@@ -25,7 +37,6 @@ export class AdminHomeComponent {
       },
     });
   }
-
   getDocumentTypeNumber(purpose: number): number {
     switch (purpose) {
       case 1:
@@ -46,5 +57,19 @@ export class AdminHomeComponent {
       default:
         return 0;
     }
+  }
+  updateStatus(
+    id: number,
+    status: 'pending' | 'schedulled' | 'cancelled' | 'complete' | 'decline'
+  ) {
+    this.appointmentService.updateStatus(id, status).subscribe({
+      next: (v: any) => {
+        this.toastr.success(v['message'], 'success');
+      },
+      error: (e: any) => {
+        this.toastr.error(e.errors.message, 'Error');
+      },
+      complete: () => this.getAllAppointment(),
+    });
   }
 }

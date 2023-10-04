@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Users } from 'src/app/datasource/models/Users';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-burial',
@@ -10,13 +12,23 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class BurialComponent implements OnInit {
   validID: File | null = null;
-
+  id!: number;
   permissionSlipForm = new FormGroup({
     validID: new FormControl('', Validators.required),
     date: new FormControl('', Validators.required),
     time: new FormControl('', Validators.required),
   });
-  constructor(private appointmentService: AppointmentService) {}
+  constructor(
+    private appointmentService: AppointmentService,
+    private localStorageService: LocalStorageService,
+    private route: ActivatedRoute
+  ) {
+    this.route.params.subscribe((params) => {
+      if (params['id']) {
+        this.id = +params['id'];
+      }
+    });
+  }
   ngOnInit(): void {}
 
   onSelectImage(event: any) {
@@ -34,7 +46,7 @@ export class BurialComponent implements OnInit {
         schedule.setHours(hours);
         schedule.setMinutes(minutes);
         this.appointmentService
-          .requestBurial(this.validID, schedule)
+          .requestBurial(this.validID, schedule, this.id)
           .subscribe({
             next: (v: any) => {
               alert(v['message']);

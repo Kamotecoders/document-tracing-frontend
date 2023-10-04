@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Users } from 'src/app/datasource/models/Users';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-psa',
@@ -9,13 +12,23 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 })
 export class PsaComponent {
   validID: File | null = null;
-
+  id!: number;
   permissionSlipForm = new FormGroup({
     validID: new FormControl('', Validators.required),
     date: new FormControl('', Validators.required),
     time: new FormControl('', Validators.required),
   });
-  constructor(private appointmentService: AppointmentService) {}
+  constructor(
+    private appointmentService: AppointmentService,
+    private localStorageService: LocalStorageService,
+    private route: ActivatedRoute
+  ) {
+    this.route.params.subscribe((params) => {
+      if (params['id']) {
+        this.id = +params['id'];
+      }
+    });
+  }
   ngOnInit(): void {}
 
   onSelectImage(event: any) {
@@ -32,16 +45,18 @@ export class PsaComponent {
         const minutes = +minutesString;
         schedule.setHours(hours);
         schedule.setMinutes(minutes);
-        this.appointmentService.requestPSA(this.validID, schedule).subscribe({
-          next: (v: any) => {
-            alert(v['message']);
-          },
-          error: (e) => alert(e.message),
-          complete: () => {
-            this.permissionSlipForm.reset();
-            this.validID = null;
-          },
-        });
+        this.appointmentService
+          .requestPSA(this.validID, schedule, this.id)
+          .subscribe({
+            next: (v: any) => {
+              alert(v['message']);
+            },
+            error: (e) => alert(e.message),
+            complete: () => {
+              this.permissionSlipForm.reset();
+              this.validID = null;
+            },
+          });
       }
     }
   }

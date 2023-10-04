@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Appointment } from 'src/app/datasource/models/Appointments';
 import { AppointmentService } from 'src/app/services/appointment.service';
@@ -9,7 +9,9 @@ import { AppointmentService } from 'src/app/services/appointment.service';
   styleUrls: ['./appointment-form.component.css'],
 })
 export class AppointmentFormComponent {
-  @Input() appointment!: Appointment;
+  @Input() appointment: Appointment | null = null;
+  @Output() onAccept: EventEmitter<void> = new EventEmitter<void>();
+  @Output() onDecline: EventEmitter<void> = new EventEmitter<void>();
   constructor(
     private appointmentService: AppointmentService,
     private toastr: ToastrService
@@ -20,17 +22,11 @@ export class AppointmentFormComponent {
     }
     return 'PM';
   }
-  updateStatus(
-    id: number,
-    status: 'pending' | 'schedulled' | 'cancelled' | 'complete' | 'decline'
-  ) {
-    this.appointmentService.updateStatus(id, status).subscribe({
-      next: (v: any) => {
-        this.toastr.success(v['message'], 'success');
-      },
-      error: (e: any) => {
-        this.toastr.error(e.errors.message, 'Error');
-      },
-    });
+
+  acceptFunc() {
+    this.onAccept.emit();
+  }
+  declineFunc() {
+    this.onDecline.emit();
   }
 }

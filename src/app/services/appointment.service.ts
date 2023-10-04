@@ -10,13 +10,11 @@ import { Observable, map } from 'rxjs';
 })
 export class AppointmentService {
   url = 'http://localhost:3000/appointments/';
-  user: Users | null;
+
   constructor(
     private http: HttpClient,
     private localStorageService: LocalStorageService
-  ) {
-    this.user = localStorageService.getUser('users');
-  }
+  ) {}
   updateStatus(
     id: number,
     appointmentStatus:
@@ -46,9 +44,9 @@ export class AppointmentService {
       })
     );
   }
-  requestBurial(validID: File, schedule: Date) {
+  requestBurial(validID: File, schedule: Date, user_id: number) {
     const formData = new FormData();
-    formData.append('user_id', this.user!.id.toString());
+    formData.append('user_id', user_id.toString());
     formData.append('purpose_id', '4');
     formData.append('outlet', 'LCR');
     formData.append('appointmentDate', schedule.toISOString());
@@ -56,9 +54,9 @@ export class AppointmentService {
     formData.append('government_id', validID);
     return this.http.post(this.url + 'create-appointment', formData);
   }
-  requestPSA(validID: File, schedule: Date) {
+  requestPSA(validID: File, schedule: Date, user_id: number) {
     const formData = new FormData();
-    formData.append('user_id', this.user!.id.toString());
+    formData.append('user_id', user_id.toString());
     formData.append('purpose_id', '2');
     formData.append('outlet', 'LCR');
     formData.append('appointmentDate', schedule.toISOString());
@@ -66,9 +64,9 @@ export class AppointmentService {
     formData.append('government_id', validID);
     return this.http.post(this.url + 'create-appointment', formData);
   }
-  requestKasalan(validID: File, schedule: Date) {
+  requestKasalan(validID: File, schedule: Date, user_id: number) {
     const formData = new FormData();
-    formData.append('user_id', this.user!.id.toString());
+    formData.append('user_id', user_id.toString());
     formData.append('purpose_id', '3');
     formData.append('outlet', `Mayor's office`);
     formData.append('appointmentDate', schedule.toISOString());
@@ -76,9 +74,9 @@ export class AppointmentService {
     formData.append('government_id', validID);
     return this.http.post(this.url + 'create-appointment', formData);
   }
-  requestVoters(validID: File, schedule: Date) {
+  requestVoters(validID: File, schedule: Date, user_id: number) {
     const formData = new FormData();
-    formData.append('user_id', this.user!.id.toString());
+    formData.append('user_id', user_id.toString());
     formData.append('purpose_id', '1');
     formData.append('outlet', 'Comelec');
     formData.append('appointmentDate', schedule.toISOString());
