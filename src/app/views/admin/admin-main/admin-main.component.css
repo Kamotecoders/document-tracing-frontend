@@ -21,3 +21,7 @@ li a:hover {
   color: black;
   cursor: pointer;
 }
+
+main {
+  background-color: #bdd99e;
+}

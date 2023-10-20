@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .navigation ul {
@@ -20,4 +20,8 @@ li a {
 li a:hover {
   color: black;
   cursor: pointer;
+}
+
+main {
+  background-color: #bdd99e;
 }

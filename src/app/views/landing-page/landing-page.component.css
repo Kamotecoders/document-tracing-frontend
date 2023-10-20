@@ -21,3 +21,12 @@ li a:hover {
   color: black;
   cursor: pointer;
 }
+li.accept {
+  color: white;
+  background: green;
+}
+li.deny,
+li.clear {
+  color: white;
+  background: rgb(125, 252, 146);
+}
