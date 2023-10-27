@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,7 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent {
   registrationForm: FormGroup; // Declare the form group
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private toastr: ToastrService
+  ) {
     this.registrationForm = this.fb.group({
       fullname: ['', Validators.required],
       address: ['', Validators.required],
@@ -30,17 +35,19 @@ export class RegisterComponent {
 
   // Function to submit the form
   submitForm() {
+    console.log('submit');
     if (this.registrationForm.valid) {
       this.authService.register(this.registrationForm.value).subscribe({
         next: (v: any) => {
-          alert(v['message']);
+          this.toastr.success('Successfully Registered!', 'Registered');
         },
         error: (errr: any) => {
-          alert(errr['message']);
+          this.toastr.error(errr.message, 'Error');
         },
         complete: () => this.registrationForm.reset(),
       });
     } else {
+      this.toastr.error('Please fill up all forms', 'Unknown error!');
       // Handle form validation errors
     }
   }

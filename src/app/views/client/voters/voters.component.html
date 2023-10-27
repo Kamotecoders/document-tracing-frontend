@@ -1,40 +1,26 @@
 <div style="min-height: 80vh" class="container-fluid p-4 text-center">
   <button
     class="btn btn-lg px-5 py-3 border-0 fw-bold rounded-0 col-4"
-    style="background-image: linear-gradient(white, skyblue)"
+    style="
+      background-image: linear-gradient(rgb(179, 255, 217), rgb(58, 243, 73));
+    "
   >
     Voters Certificate</button
   ><br /><br />
-  <h4 class="text-start fw-bold">WALK IN</h4>
-  <h4 class="text-start fw-bold">PROCEDURE:</h4>
-  <div class="row text-white justify-content-around gap-3">
-    <div class="col col-md-2 bg-success p-5">
-      <h5 class="fw-bold">step 1:</h5>
-      <p class="px-2 text-start">
-        <i class="fa fa-check"></i> Go to the Comelec Office
-      </p>
-    </div>
-    <div class="col col-md-2 bg-success p-5">
-      <h5 class="fw-bold">step 2:</h5>
-      <p class="px-2 text-start">
-        <i class="fa fa-check"></i> Present ID and state your purpose
-      </p>
-    </div>
-    <div class="col col-md-2 bg-success p-5">
-      <h5 class="fw-bold">step 3:</h5>
-      <p class="px-2 text-start">
-        <i class="fa fa-check"></i> Provide cash for payment
-      </p>
-    </div>
-    <div class="col col-md-2 bg-success p-5">
-      <h5 class="fw-bold">step 4:</h5>
-      <p class="px-2 text-start">
-        <i class="fa fa-check"></i> Sign in to log book
-      </p>
-    </div>
-  </div>
+  <img
+    src="https://th.bing.com/th/id/OIP.gx2f73wuck-paxrNTit_xAAAAA?pid=ImgDet&rs=1"
+    width="100px"
+    height="100px"
+    class="rounded-circle"
+    style="position: absolute; left: 0; z-index: 10"
+  />
+  <div class="row justify-content-center mt-1 gap-3"></div>
   <br />
-  <img src="../../../../assets/images/loading.jpg" />
+
+  <h1 class="fw-bold fs-2 mt-1" style="margin-left: 7rem">
+    ONLINE PROCCEDURE:
+  </h1>
+  <br />
   <div class="row text-start mt-4 gap-3 justify-content-center">
     <div class="col col-md-4 border border-success p-4 rounded">
       <h4>Requirements:</h4>
@@ -43,20 +29,38 @@
         [formGroup]="permissionSlipForm"
         (submit)="submitRequest()"
       >
-        <div class="col-12">
-          <label for="validID" class="form-label">Valid ID</label>
-          <input
-            class="form-control"
-            id="validID"
-            type="file"
-            (change)="onSelectImage($event)"
-            accept="image/*"
-            formControlName="validID"
-            placeholder="ID"
-          />
-        </div>
-        <div class="col-md-6">
-          <label for="date" class="form-label">Date</label>
+        <label for="validID" class="form-label">Choose Valid ID</label>
+        <div class="col-8">
+          <div class="form-floating mb-3">
+            <select
+              class="form-select"
+              id="status"
+              required
+              formControlName="status"
+            >
+              <option selected>--SELECT I.D--</option>
+              <option value="Driver License">Driver License</option>
+              <option value="National I.D">National I.D</option>
+              <option value="Voter's I.D">Voter's I.D</option>
+              <option value="TIN Card">TIN Card</option>
+              <option value="SSS UMID Card">SSS UMID Card</option>
+              <option value="Postal ID">Postal ID</option>
+            </select>
+            <label class="status">Select Valid I.D</label>
+          </div>
+          <div class="col-12">
+            <input
+              class="form-control"
+              id="validID"
+              type="file"
+              (change)="onSelectImage($event)"
+              accept="image/*"
+              formControlName="validID"
+              placeholder="ID"
+            />
+          </div>
+          <div class="col-md-6"></div>
+          <label for="date" class="form-label">Choose Date</label>
           <input
             type="date"
             class="form-control"
@@ -65,7 +69,7 @@
           />
         </div>
         <div class="col-md-6">
-          <label for="time" class="form-label">Time</label>
+          <label for="time" class="form-label">Choose Time</label>
           <input
             type="time"
             class="form-control"
@@ -80,16 +84,116 @@
         </div>
       </form>
     </div>
+    <br />
+    <div class="col col-md-2 bg-success p-5">
+      <h5 class="fw-bold">Prepare your fees:</h5>
+      <img
+        src="https://cdn3.iconfinder.com/data/icons/personal-business-finance-set-2-2/64/c-63-512.png"
+        class="rounded-circle border"
+        style="height: 100px; width: 100px"
+      />
+      <p class="px-2 text-start"></p>
+      <h5 class="fw-bold">1.</h5>
+      <i class="fa fa-check"></i> Certificate - 75.00
 
-    <div
-      class="col col-md-4 border border-success p-4 rounded position-relative"
-    >
-      <h4>Prepare your fees:</h4>
-      <p class="">
-        <i class="fa fa-check"></i> Certificate - 75.00 <br />
-        <i class="fa fa-check"></i> Senior and PWD - No fee <br />
-        <i class="fa fa-check"></i> (REGISTRAR)
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <app-toggle-button></app-toggle-button>
+      </div>
+    </div>
+    <div class="col col-md-2 bg-success p-5">
+      <h5 class="fw-bold">Take note!:</h5>
+      <img
+        src="https://thumbs.dreamstime.com/b/set-icon-movement-persons-disabilities-concept-black-white-image-sign-fully-editable-vector-image-80449341.jpg"
+        class="rounded-circle border"
+        style="height: 100px; width: 100px"
+      />
+      <h5 class="fw-bold">2.</h5>
+      <p class="px-2 text-start">
+        <i class="fa fa-check"></i> Senior and PWD - No fee
       </p>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <app-toggle-button></app-toggle-button>
+      </div>
+    </div>
+    <div class="col col-md-2 bg-success p-5">
+      <h5 class="fw-bold">Take note!:</h5>
+      <img
+        src="https://cdn1.iconfinder.com/data/icons/documents-48/100/1294-256.png"
+        style="height: 100px; width: 100px"
+      />
+      <h5 class="fw-bold">3.</h5>
+      <p class="px-2 text-start">
+        <i class="fa fa-check"></i> Go to MTO office To Pay!
+      </p>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <app-toggle-button></app-toggle-button>
+      </div>
+    </div>
+    <br />
+    <h1 class="fw-bold fs-2 mt-1" style="margin-left: 7rem">
+      WALK IN PROCCEDURE:
+    </h1>
+    <br />
+    <div class="row text-white justify-content-around gap-3">
+      <div class="col col-md-2 bg-success p-5">
+        <img
+          src="https://th.bing.com/th/id/OIP.Q5e2itGgPePbI7Rh8ebYjgHaHa?pid=ImgDet&rs=1"
+          class="rounded-circle border"
+          style="height: 100px; width: 100px"
+        />
+        <h5 class="fw-bold">step 1:</h5>
+        <p class="px-2 text-start">
+          <i class="fa fa-check"></i> Go to the Comelec Office look for Ms. Lisa
+          Cornejo
+        </p>
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <app-toggle-button></app-toggle-button>
+        </div>
+      </div>
+      <div class="col col-md-2 bg-success p-5">
+        <img
+          src="https://cdn3.iconfinder.com/data/icons/medical-and-health-1-13/52/83-512.png"
+          class="rounded-circle border"
+          style="height: 100px; width: 100px"
+        />
+        <h5 class="fw-bold">step 2:</h5>
+        <p class="px-2 text-start">
+          <i class="fa fa-check"></i> Present ID and state your purpose
+        </p>
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <app-toggle-button></app-toggle-button>
+        </div>
+      </div>
+      <div class="col col-md-2 bg-success p-5">
+        <img
+          src="https://cdn4.iconfinder.com/data/icons/money-filled-outline/64/money-colored-15-512.png"
+          class="rounded-circle border"
+          style="height: 100px; width: 100px"
+        />
+        <h5 class="fw-bold">step 3:</h5>
+        <p class="px-2 text-start">
+          <i class="fa fa-check"></i> Provide cash for payment
+        </p>
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <app-toggle-button></app-toggle-button>
+        </div>
+      </div>
+      <div class="col col-md-2 bg-success p-5">
+        <img
+          src="https://nationalgriefawarenessday.com/wp-content/uploads/2018/01/log-book-sample-logbook-icon.jpg"
+          class="rounded-circle border"
+          style="height: 100px; width: 100px"
+        />
+        <h5 class="fw-bold">step 4:</h5>
+        <p class="px-2 text-start">
+          <i class="fa fa-check"></i> Sign in to log book
+        </p>
+        <div class="container mt-4">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <app-toggle-button></app-toggle-button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

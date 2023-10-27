@@ -61,3 +61,5 @@ export class VotersComponent {
     }
   }
 }
+// task.component.ts
+
