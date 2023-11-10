@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component';
+import { GantchartComponent } from './gantchart/gantchart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { ToggleButtonComponent } from './components/toggle-button/toggle-button.
     AdminHomeComponent,
     AppointmentFormComponent,
     ToggleButtonComponent,
+    GantchartComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,7 @@ import { KasalanComponent } from './views/client/kasalan/kasalan.component';
 import { BurialComponent } from './views/client/burial/burial.component';
 import { DashboardComponent } from './views/client/dashboard/dashboard.component';
 import { AdminHomeComponent } from './views/admin/admin-home/admin-home.component';
+import { GantchartComponent } from './gantchart/gantchart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'announcement', component: AnnouncementsComponent },
       { path: 'contacts', component: ContactsComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'ganchart', component: GantchartComponent },
     ],
   },
   {
