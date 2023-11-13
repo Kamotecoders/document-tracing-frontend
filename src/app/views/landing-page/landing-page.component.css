@@ -30,3 +30,23 @@ li.clear {
   color: white;
   background: rgb(125, 252, 146);
 }
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+}
+#digital-clock {
+  width: 80%;
+  font-size: 20px;
+  text-align: center;
+  font-size: 19vw;
+  color: white;
+}
+.red-dot {
+  color: red;
+}

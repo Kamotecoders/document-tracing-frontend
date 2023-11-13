@@ -8,19 +8,10 @@
   "
   class="w-full d-flex align-items-center justify-content-center position-relative"
 >
-  >
-
   <div style="min-height: 80vh" class="container-fluid p-4 text-center">
-    <button
-      class="btn btn-lg px-5 py-3 border-0 fw-bold rounded-0 col-4"
-      style="
-        background-image: linear-gradient(rgb(179, 255, 217), rgb(58, 243, 73));
-      "
-    >
-      PSA CERTIFICATE</button
-    ><br /><br />
+    <br />
     <img
-      src="https://rsso05.psa.gov.ph/sites/default/files/Philippine_Statistics_Authority.png"
+      src="../../../../assets/images/logo.png"
       width="100px"
       height="100px"
       class="rounded-circle"
@@ -28,19 +19,19 @@
     />
     <br />
     <h1 class="fw-bold text-white fs-2 mt-1" style="margin-left: 7rem">
-      ONLINE PROCEDURE:
+      PSA CERTIFICATE:
     </h1>
     <br />
-    <div class="row text-start mt-4 gap-3 justify-content-center">
+    <div class="row text-start mt-4 gap-3 justify-content-left">
       <div class="col col-md-5 bg-white p-7">
-        <h4>Step 1:</h4>
-        <h4>Requirements:</h4>
+        <h4>Phillipine Statistics Authority</h4>
+        <h4>Online Requirements:</h4>
         <form
           class="row g-3"
           [formGroup]="permissionSlipForm"
           (submit)="submitRequest()"
         >
-          <label for="validID" class="form-label">Choose Valid ID</label>
+          <label for="validID" class="form-label">Upload Valid ID</label>
           <div class="col-8">
             <div class="form-floating mb-3">
               <select
@@ -71,8 +62,8 @@
               />
             </div>
             <div class="col-md-6"></div>
-            <label for="date" class="form-label"
-              >Choosen Date For Schedule:</label
+            <label for="date" class="form-label">
+              Date Schedule For Appointment:</label
             >
             <input
               type="date"
@@ -83,7 +74,7 @@
           </div>
           <div class="col-md-6">
             <label for="time" class="form-label"
-              >Choosen Time For Schedule:</label
+              >Time Schedule For Appointment:</label
             >
             <input
               type="time"
@@ -100,116 +91,88 @@
         </form>
       </div>
       <br />
-      <div class="col col-md-2 bg-success p-5">
-        <h5 class="fw-bold text-white">Step 2</h5>
-        <img
-          src="https://cdn3.iconfinder.com/data/icons/office-347/64/Calendar-office-schedule-1024.png"
-          class="rounded-circle border"
-          style="height: 100px; width: 100px"
-        />
+      <div class="col col-md-4 bg-success p-4">
         <p class="px-2 text-white"></p>
-        <h5 class="fw-bold text-white">
-          Visit your e-mail account showing the confirmation and schedule of
-          your transaction
-        </h5>
         <br />
         <br />
         <br />
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-          <app-toggle-button></app-toggle-button>
+        <h1 class="fw-bold text-black">
+          After uploading Valid ID visit your e-mail Account.
+        </h1>
+        <br />
+        <br />
+        <br />
+      </div>
+      <div class="banner-area">
+        <div class="wrapper">
+          <h1>PROCEDURE</h1>
+          <div class="banner-text">
+            <ul class="text-content">
+              <li class="content">STEP 1</li>
+              <li class="content">STEP2</li>
+              <li class="content">STEP 3</li>
+              <li class="content">STEP 4</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="col col-md-2 bg-success p-5">
-        <h5 class="fw-bold text-white">Step 3</h5>
-        <img
-          src="../../../../assets/images/rizal front.jpg"
-          class="rounded-circle border"
-          style="height: 100px; width: 100px"
-        />
-        <p class="px-2 text-white"></p>
-        <h5 class="fw-bold text-white">
-          Once you have a Softcopy or Screen Shot of your schedule coming from
-          your e-mail. You can Now go to Municipality of Rizal, Occidental
-          Mindoro
-        </h5>
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-          <app-toggle-button></app-toggle-button>
-        </div>
-      </div>
-      <br />
-      <h1 class="fw-bold text-white fs-2 mt-1" style="margin-left: 7rem">
-        WALK IN PROCEDURE:
-      </h1>
-      <br />
-
-      <div class="row text-white justify-content-around gap-3">
+      <div class="row text-black justify-content-around gap-3">
         <div class="row text-start mt-4 gap-3 justify-content-center"></div>
-        <div class="col col-md-2 bg-success p-5">
+        <div class="col col-md-3 bg-success p-4">
           <img
             src="https://th.bing.com/th/id/OIP.Q5e2itGgPePbI7Rh8ebYjgHaHa?pid=ImgDet&rs=1"
             class="rounded-circle border"
             style="height: 100px; width: 100px"
           />
-          <h5 class="fw-bold">step 1:</h5>
-          <p class="px-2 text-start">
-            <i class="fa fa-check"></i> Go to the LCR Office look for Ms.
-            Thelcce M. Tibes
-          </p>
+          <h4 class="fw-bold">Step 1:</h4>
+          <p class="px-2 text-start"></p>
+          <h5>.Go to MCR Office (Municipal Civil Registrar)</h5>
+          <h4>
+            .Look for Ms. Emie M. Hermoso Municipal Civil Registrar Officer
+          </h4>
           <div
-            class="btn-group mr-2"
+            class="btn-group mr-3"
             role="group"
             aria-label="First group"
           ></div>
         </div>
-        <div class="col col-md-2 bg-success p-5">
+        <div class="col col-md-3 bg-success p-4">
           <img
             src="https://cdn3.iconfinder.com/data/icons/medical-and-health-1-13/52/83-512.png"
             class="rounded-circle border"
             style="height: 100px; width: 100px"
           />
-          <h5 class="fw-bold">step 2:</h5>
-          <p class="px-2 text-start">
-            <i class="fa fa-check"></i> Present ID and state your purpose
-          </p>
+          <h4 class="fw-bold">Step 2:</h4>
+          <p class="px-2 text-start"></p>
+          <h5>Fill-up allotted documents</h5>
+          <h5>Prepare Fee’s for different PSA Request:</h5>
+          <h5>CENOMAR (Certificate of No Marriage) - P 210.00</h5>
+          <h5>PSA Birth Certificate P 155.00</h5>
+          <h5>Death Certificate P 155.00</h5>
+          <h5>Marriage Certificate P 155.00</h5>
+          <h5>Service Fee Applicable for ALL PSA Request - P 100.00 ONLY</h5>
           <div
             class="btn-group mr-2"
             role="group"
             aria-label="First group"
           ></div>
         </div>
-        <div class="col col-md-2 bg-success p-5">
+        <div class="col col-md-3 bg-success p-4">
           <img
             src="https://cdn4.iconfinder.com/data/icons/money-filled-outline/64/money-colored-15-512.png"
             class="rounded-circle border"
             style="height: 100px; width: 100px"
           />
-          <h5 class="fw-bold">step 3:</h5>
-          <p class="px-2 text-start">
-            <i class="fa fa-check"></i> Pay Your Bills To Treasurer Office
-          </p>
+          <h4 class="fw-bold">Step 3:</h4>
+          <h5>
+            For completing the fill-up forms and preparing fee’s go to
+            Treasurer’s Office for the payment.
+          </h5>
           <div
             class="btn-group mr-2"
             role="group"
             aria-label="First group"
           ></div>
-        </div>
-        <div class="col col-md-2 bg-success p-5">
-          <img
-            src="https://nationalgriefawarenessday.com/wp-content/uploads/2018/01/log-book-sample-logbook-icon.jpg"
-            class="rounded-circle border"
-            style="height: 100px; width: 100px"
-          />
-          <h5 class="fw-bold">step 4:</h5>
-          <p class="px-2 text-start">
-            <i class="fa fa-check"></i> Sign in to log book
-          </p>
-          <div class="container mt-4">
-            <div
-              class="btn-group mr-2"
-              role="group"
-              aria-label="First group"
-            ></div>
-          </div>
         </div>
       </div>
     </div>

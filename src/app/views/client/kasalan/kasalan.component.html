@@ -8,19 +8,10 @@
   "
   class="w-full d-flex align-items-center justify-content-center position-relative"
 >
-  >
-
   <div style="min-height: 80vh" class="container-fluid p-4 text-center">
-    <button
-      class="btn btn-lg px-5 py-3 border-0 fw-bold rounded-0 col-4"
-      style="
-        background-image: linear-gradient(rgb(179, 255, 217), rgb(58, 243, 73));
-      "
-    >
-      MERRIAGE CERTIFICATE</button
-    ><br /><br />
+    <br />
     <img
-      src="https://cdn1.iconfinder.com/data/icons/love-wedding-vol-2/512/z3-marriage_certificate_wedding_paper-512.png"
+      src="../../../../assets/images/logo.png"
       width="100px"
       height="100px"
       class="rounded-circle"
@@ -28,188 +19,170 @@
     />
     <br />
     <h1 class="fw-bold text-white fs-2 mt-1" style="margin-left: 7rem">
-      ONLINE PROCEDURE:
+      KASALANG BAYAN:
     </h1>
     <br />
-    <div class="row text-start mt-4 gap-3 justify-content-center">
-      <div class="col col-md-5 bg-white p-7">
-        <h4>Step 1:</h4>
-        <h4>Requirements:</h4>
+    <div class="row text-start mt-4 gap-3 justify-content-left">
+      <div class="col col-md-3 bg-white p-4">
+        <h2>Online Requirements</h2>
+        <br />
+        <h5>Upload valid ID</h5>
         <form
           class="row g-3"
           [formGroup]="permissionSlipForm"
           (submit)="submitRequest()"
         >
-          <label for="validID" class="form-label">Choose Valid ID</label>
-          <div class="col-8">
-            <div class="form-floating mb-3">
-              <select
-                class="form-select"
-                id="status"
-                required
-                formControlName="status"
-              >
-                <option selected>--SELECT I.D--</option>
-                <option value="Driver License">Driver License</option>
-                <option value="National I.D">National I.D</option>
-                <option value="Voter's I.D">Voter's I.D</option>
-                <option value="TIN Card">TIN Card</option>
-                <option value="SSS UMID Card">SSS UMID Card</option>
-                <option value="Postal ID">Postal ID</option>
-              </select>
-              <label class="status">Select Valid I.D</label>
-            </div>
-            <div class="col-12">
-              <input
-                class="form-control"
-                id="validID"
-                type="file"
-                (change)="onSelectImage($event)"
-                accept="image/*"
-                formControlName="validID"
-                placeholder="ID"
-              />
-            </div>
+          <div class="col-12">
+            <input
+              class="form-control"
+              id="validID"
+              type="file"
+              (change)="onSelectImage($event)"
+              accept="image/*"
+              formControlName="validID"
+              placeholder="ID"
+            />
             <div class="col-md-6"></div>
-            <label for="date" class="form-label"
-              >Choosen Date For Schedule:</label
-            >
+            <label for="date" class="form-label"></label>
+            Date Schedule For Appointment:
             <input
               type="date"
               class="form-control"
               id="date"
               formControlName="date"
             />
+            <div class="col-md-6">
+              <label for="time" class="form-label"
+                >Time Schedule For Appointment:</label
+              >
+              <input
+                type="time"
+                class="form-control"
+                id="time"
+                formControlName="time"
+              />
+              <br />
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="time" class="form-label"
-              >Choosen Time For Schedule:</label
-            >
+          <div class="col-md-12 align-end">
+            <button class="btn btn-success" type="submit">
+              Submit Request
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col col-md-3 bg-white p-4">
+        <h2>Online Requirements</h2>
+
+        <br />
+        <h6>Upload Photo of the Bride and Groom</h6>
+        <form
+          class="row g-3"
+          [formGroup]="permissionSlipForm"
+          (submit)="submitRequest()"
+        >
+          <div class="col-12">
             <input
-              type="time"
               class="form-control"
-              id="time"
-              formControlName="time"
+              id="validID"
+              type="file"
+              (change)="onSelectImage($event)"
+              accept="image/*"
+              formControlName="validID"
+              placeholder="ID"
             />
           </div>
           <div class="col-md-12 align-end">
             <button class="btn btn-success" type="submit">
-              Appointment Request
+              Submit Request
             </button>
           </div>
         </form>
       </div>
       <br />
-      <div class="col col-md-2 bg-success p-5">
-        <h5 class="fw-bold text-white">Step 2</h5>
-        <img
-          src="https://cdn3.iconfinder.com/data/icons/office-347/64/Calendar-office-schedule-1024.png"
-          class="rounded-circle border"
-          style="height: 100px; width: 100px"
-        />
-        <p class="px-2 text-white"></p>
-        <h5 class="fw-bold text-white">
-          Visit your e-mail account showing the confirmation and schedule of
-          your transaction
-        </h5>
+      <div class="col col-md-3 bg-success p-4">
         <br />
         <br />
         <br />
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-          <app-toggle-button></app-toggle-button>
+        <h3>After uploading Valid IDs visit your e-mail Account.</h3>
+        <div class="btn-group mr-2" role="group" aria-label="First group"></div>
+      </div>
+    </div>
+    <br />
+    <div class="banner-area">
+      <div class="wrapper">
+        <h1>PROCEDURE</h1>
+        <div class="banner-text">
+          <ul class="text-content">
+            <li class="content">STEP 1</li>
+            <li class="content">STEP2</li>
+            <li class="content">STEP 3</li>
+            <li class="content">STEP 4</li>
+          </ul>
         </div>
       </div>
-      <div class="col col-md-2 bg-success p-5">
-        <h5 class="fw-bold text-white">Step 3</h5>
-        <img
-          src="../../../../assets/images/rizal front.jpg"
-          class="rounded-circle border"
-          style="height: 100px; width: 100px"
-        />
-        <p class="px-2 text-white"></p>
-        <h5 class="fw-bold text-white">
-          Once you have a Softcopy or Screen Shot of your schedule coming from
-          your e-mail. You can Now go to Municipality of Rizal, Occidental
-          Mindoro
-        </h5>
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-          <app-toggle-button></app-toggle-button>
-        </div>
-      </div>
-      <br />
-      <h1 class="fw-bold text-white fs-2 mt-1" style="margin-left: 7rem">
-        WALK IN PROCEDURE:
-      </h1>
-      <br />
+    </div>
 
-      <div class="row text-white justify-content-around gap-3">
-        <div class="row text-start mt-4 gap-3 justify-content-center"></div>
-        <div class="col col-md-2 bg-success p-5">
-          <img
-            src="https://th.bing.com/th/id/OIP.Q5e2itGgPePbI7Rh8ebYjgHaHa?pid=ImgDet&rs=1"
-            class="rounded-circle border"
-            style="height: 100px; width: 100px"
-          />
-          <h5 class="fw-bold">step 1:</h5>
-          <p class="px-2 text-start">
-            <i class="fa fa-check"></i> Go to the Mayor's Office look for Ms.
-            Lisa Cornejo
-          </p>
+    <div class="row text-white justify-content-around gap-3">
+      <div class="row text-start mt-4 gap-3 justify-content-center"></div>
+      <div class="col col-md-2 bg-success p-5">
+        <img
+          src="https://th.bing.com/th/id/OIP.Q5e2itGgPePbI7Rh8ebYjgHaHa?pid=ImgDet&rs=1"
+          class="rounded-circle border"
+          style="height: 100px; width: 100px"
+        />
+        <h2 class="fw-bold">Step 1:</h2>
+        <p class="px-2 text-start">
+          <i class="fa fa-check"></i>
+          Pumunta sa inyong Email at tingnan ang Confirmation ng inyong
+          transaction
+        </p>
+        <div class="btn-group mr-2" role="group" aria-label="First group"></div>
+      </div>
+      <div class="col col-md-2 bg-success p-5">
+        <img
+          src="https://cdn3.iconfinder.com/data/icons/medical-and-health-1-13/52/83-512.png"
+          class="rounded-circle border"
+          style="height: 100px; width: 100px"
+        />
+        <h2 class="fw-bold">Step 2:</h2>
+        <p class="px-2 text-start">
+          <i class="fa fa-check"></i> Kung kayo ay meron ng schedule pumunta sa
+          comelec Office at hanapin si Mrs. Erluza O. Balderas (Comelec Officer)
+        </p>
+        <div class="btn-group mr-2" role="group" aria-label="First group"></div>
+      </div>
+      <div class="col col-md-2 bg-success p-5">
+        <img
+          src="https://cdn4.iconfinder.com/data/icons/money-filled-outline/64/money-colored-15-512.png"
+          class="rounded-circle border"
+          style="height: 100px; width: 100px"
+        />
+        <h2 class="fw-bold">Step 3:</h2>
+        <p class="px-2 text-start">
+          <i class="fa fa-check"></i> Mag Provide ng Payment para Voter’s
+          Certificate Regular 75.00 Senior Citezen and PWD- No fee
+        </p>
+        <div class="btn-group mr-2" role="group" aria-label="First group"></div>
+      </div>
+      <div class="col col-md-2 bg-success p-5">
+        <img
+          src="https://nationalgriefawarenessday.com/wp-content/uploads/2018/01/log-book-sample-logbook-icon.jpg"
+          class="rounded-circle border"
+          style="height: 100px; width: 100px"
+        />
+        <h2 class="fw-bold">Step 4:</h2>
+        <p class="px-2 text-start">
+          <i class="fa fa-check"></i> Pagkatapos ma claim at mag bayad mag sign
+          sa Log book
+        </p>
+        <div class="container mt-4">
           <div
             class="btn-group mr-2"
             role="group"
             aria-label="First group"
           ></div>
-        </div>
-        <div class="col col-md-2 bg-success p-5">
-          <img
-            src="https://cdn3.iconfinder.com/data/icons/medical-and-health-1-13/52/83-512.png"
-            class="rounded-circle border"
-            style="height: 100px; width: 100px"
-          />
-          <h5 class="fw-bold">step 2:</h5>
-          <p class="px-2 text-start">
-            <i class="fa fa-check"></i> Present ID and state your purpose
-          </p>
-          <div
-            class="btn-group mr-2"
-            role="group"
-            aria-label="First group"
-          ></div>
-        </div>
-        <div class="col col-md-2 bg-success p-5">
-          <img
-            src="https://cdn4.iconfinder.com/data/icons/money-filled-outline/64/money-colored-15-512.png"
-            class="rounded-circle border"
-            style="height: 100px; width: 100px"
-          />
-          <h5 class="fw-bold">step 3:</h5>
-          <p class="px-2 text-start">
-            <i class="fa fa-check"></i> Pay Your Bills To Treasurer Office
-          </p>
-          <div
-            class="btn-group mr-2"
-            role="group"
-            aria-label="First group"
-          ></div>
-        </div>
-        <div class="col col-md-2 bg-success p-5">
-          <img
-            src="https://nationalgriefawarenessday.com/wp-content/uploads/2018/01/log-book-sample-logbook-icon.jpg"
-            class="rounded-circle border"
-            style="height: 100px; width: 100px"
-          />
-          <h5 class="fw-bold">step 4:</h5>
-          <p class="px-2 text-start">
-            <i class="fa fa-check"></i> Sign in to log book
-          </p>
-          <div class="container mt-4">
-            <div
-              class="btn-group mr-2"
-              role="group"
-              aria-label="First group"
-            ></div>
-          </div>
         </div>
       </div>
     </div>

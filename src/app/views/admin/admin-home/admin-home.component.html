@@ -54,7 +54,13 @@
 
         <li routerLink="ganchart" routerLinkActive="active"></li>
 
-        <li><a class="dropdown-item" href="#">Data Analytics</a></li>
+        <li routerLink="ganchart" routerLinkActive="active"></li>
+
+        <li>
+          <a class="dropdown-item" href="gantchart.component.html"
+            >Data Analytics</a
+          >
+        </li>
         <li><a class="dropdown-item" href="#">Total</a></li>
       </ul>
     </div>
@@ -103,6 +109,7 @@
               <th>Status</th>
               <th>Actions</th>
               <button id="print-button">Print</button>
+              <div class="alert alert-primary" role="alert">Print Error!</div>
             </tr>
           </thead>
           <tbody *ngFor="let appointment of _scheduledAppointments">
