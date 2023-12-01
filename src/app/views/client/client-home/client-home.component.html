@@ -1,0 +1,141 @@
+
+<div
+  id="carouselExampleIndicators"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        src="../../../../assets/images/rizal front.jpg"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="../../../../assets/images/rizal front.jpg"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="../../../../assets/images/rizal front.jpg"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="container-fluid p-4 text-center">
+  <div class="banner-area">
+    <div class="wrapper">
+      <h2>APOINTMENT RIZAL MANAGEMENT E-SERVICES</h2>
+      <div class="banner-text">
+        <ul class="text-content">
+          <li class="content">VOTER'S CERTIFICATE</li>
+          <li class="content">PSA</li>
+          <li class="content">MARRIAGE CERTIFICATE</li>
+          <li class="content">BURIAL ASSISTANCE</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-4 gap-3">
+    <a
+      (click)="navigateTo('voters')"
+      style="box-shadow: 1px 0px 2px 5px rgba(22, 22, 22, 0.6) inset"
+      class="col border-0 btn col-md-2 p-3 text-center text-black bg-success"
+    >
+      <img
+        src="https://cdn4.iconfinder.com/data/icons/election-voting/512/as_1366-512.png"
+        class="rounded-circle border"
+        style="height: 100px; width: 100px"
+        alt="voters certificate"
+      /><br /><br />
+      <h4>Voters certificate</h4>
+    </a>
+
+    <div
+      (click)="navigateTo('psa')"
+      style="box-shadow: 1px 0px 2px 5px rgba(22, 22, 22, 0.6) inset"
+      class="col border-0 btn col-md-2 p-3 text-center text-black bg-success"
+    >
+      <img
+        src="https://i0.wp.com/palawan-news.com/wp-content/uploads/2020/02/psa-logo.png?resize=362%2C362&ssl=1"
+        class="rounded-circle border"
+        style="height: 100px; width: 100px"
+        alt="voters certificate"
+      /><br /><br />
+      <h4>PSA</h4>
+    </div>
+
+    <a
+      (click)="navigateTo('kasalan')"
+      style="box-shadow: 1px 0px 2px 5px rgba(22, 22, 22, 0.6) inset"
+      class="col border-0 btn col-md-2 p-3 text-center text-black bg-success"
+    >
+      <img
+        src="https://cdn1.iconfinder.com/data/icons/love-wedding-vol-2/512/z3-marriage_certificate_wedding_paper-512.png"
+        class="rounded-circle border"
+        style="height: 100px; width: 100px"
+        alt="voters certificate"
+      /><br /><br />
+      <h4>kasalang Bayan</h4>
+    </a>
+    <a
+      (click)="navigateTo('burial')"
+      style="box-shadow: 1px 0px 2px 5px rgba(22, 22, 22, 0.6) inset"
+      class="col border-0 btn col-md-2 p-3 text-center text-black bg-success"
+    >
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/4671/4671294.png"
+        class="rounded-circle border"
+        style="height: 100px; width: 100px"
+        alt="voters certificate"
+      /><br /><br />
+      <h4>Burrial Assistance</h4>
+    </a>
+  </div>
+</div>

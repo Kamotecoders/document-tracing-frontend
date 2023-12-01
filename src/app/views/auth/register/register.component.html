@@ -1,0 +1,181 @@
+<button
+  class="btn btn-trnasparent text-white btn-sm px-3"
+  data-bs-toggle="modal"
+  data-bs-target="#registerModal"
+>
+  Register
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="registerModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Registration</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid d-flex flex-column gap-2 align-items-start">
+          <div
+            class="container d-flex align-items-center align-items-center justify-content-center"
+            style="background-color: #2bebb1; padding: 1rem"
+          >
+            <p class="text-dark">Please fill up all forms</p>
+          </div>
+
+          <form
+            class="w-100"
+            [formGroup]="registrationForm"
+            (submit)="submitForm()"
+          >
+            <div class="row">
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="fullname"
+                    id="fullname"
+                    placeholder="ex. Juan Dela Cruz"
+                  />
+                  <label for="fullname">Fullname</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-floating mb-3">
+                  <input
+                    type="date"
+                    class="form-control"
+                    formControlName="birthdate"
+                    id="Birthdate"
+                    placeholder="ex. 08/16/00"
+                  />
+                  <label for="Birthdate">Birthdate</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-floating mb-3">
+                  <input
+                    type="number"
+                    class="form-control"
+                    formControlName="age"
+                    id="age"
+                    placeholder="ex. 20"
+                  />
+                  <label for="age">Age</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="address"
+                    id="address"
+                    placeholder="address"
+                  />
+                  <label for="address">Address</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <select
+                    class="form-select"
+                    id="gender"
+                    formControlName="gender"
+                    aria-label="Floating label select example"
+                  >
+                    <option selected>--SELECT GENDER--</option>
+                    <option value="male">MALE</option>
+                    <option value="female">FEMALE</option>
+                  </select>
+                  <label for="floatingSelect">Gender</label>
+                </div>
+              </div>
+              <div class="col-8">
+                <div class="form-floating mb-3">
+                  <select
+                    class="form-select"
+                    id="status"
+                    required
+                    formControlName="status"
+                  >
+                    <option selected>--SELECT STATUS--</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                  </select>
+                  <label class="status">Status</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <input
+                    type="number"
+                    class="form-control"
+                    formControlName="phone"
+                    id="phone"
+                    placeholder="ex. 20"
+                  />
+                  <label for="age">Phone</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-floating mb-3">
+                  <input
+                    type="email
+                  "
+                    class="form-control"
+                    formControlName="email"
+                    id="email"
+                    placeholder="email"
+                  />
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-floating mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    formControlName="password"
+                    id="password"
+                    placeholder="password"
+                  />
+                  <label for="password">Password</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn" data-bs-dismiss="modal">
+                CANCEL
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="registrationForm.invalid"
+              >
+                SIGN UP
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

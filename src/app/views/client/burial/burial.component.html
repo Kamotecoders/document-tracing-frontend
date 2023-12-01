@@ -1,0 +1,187 @@
+<img
+src="../../../../assets/images/burial image.png"
+class="img-fluid"
+alt="Responsive image"
+/>
+
+<div
+  style="
+    min-height: 80vh;
+    background: url(../../../../assets/images/rizal.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: brightness(100%);
+  "
+  class="w-full d-flex align-items-center justify-content-center position-relative"
+>
+  <div style="min-height: 80vh" class="container-fluid p-4 text-center">
+ 
+    <br />
+    <div class="row text-start mt-4 gap-3 justify-content-center">
+      <div class="col col-md-4 bg-white p-4">
+        <h1>REGULAR</h1>
+        <br />
+        <h5>INSERT PHOTO DEATH CERTIFICATE</h5>
+        <form
+          class="row g-3"
+          [formGroup]="permissionSlipForm"
+          (submit)="submitRequest()"
+        >
+          <div class="col-12">
+            <input
+              class="form-control"
+              id="validID"
+              type="file"
+              (change)="onSelectImage($event)"
+              accept="image/*"
+              formControlName="validID"
+              placeholder="ID"
+            />
+            <div class="col-md-6"></div>
+            <label for="date" class="form-label"></label>
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              formControlName="date"
+            />
+            <div class="col-md-6">
+              <label for="time" class="form-label"
+                >Choosen Time For Schedule:</label
+              >
+              <input
+                type="time"
+                class="form-control"
+                id="time"
+                formControlName="time"
+              />
+              <br />
+            </div>
+          </div>
+          <div class="col-md-12 align-end">
+            <button class="btn btn-success" type="submit">
+              Submit Request
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col col-md-4 bg-white p-4">
+        <h1>PWD</h1>
+        <h4>(PERSON WITH DISABILITIES)</h4>
+        <br />
+        <h5>PHOTO OF VALID I.D OF THE DECEASED:</h5>
+        <form
+          class="row g-3"
+          [formGroup]="permissionSlipForm"
+          (submit)="submitRequest()"
+        >
+          <div class="col-12">
+            <input
+              class="form-control"
+              id="validID"
+              type="file"
+              (change)="onSelectImage($event)"
+              accept="image/*"
+              formControlName="validID"
+              placeholder="ID"
+            />
+            <div class="col-md-6"></div>
+            <label for="date" class="form-label"></label>
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              formControlName="date"
+            />
+            <div class="col-md-6">
+              <label for="time" class="form-label"
+                >Choosen Time For Schedule:</label
+              >
+              <input
+                type="time"
+                class="form-control"
+                id="time"
+                formControlName="time"
+              />
+              <br />
+            </div>
+          </div>
+          <div class="col-md-12 align-end">
+            <button class="btn btn-success" type="submit">
+              Submit Request
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col col-md-3 bg-white p-4">
+        <h1>REFERRAL</h1>
+        <br />
+        <h5>CERTIFICATE OF FUNERAL</h5>
+        <form
+          class="row g-3"
+          [formGroup]="permissionSlipForm"
+          (submit)="submitRequest()"
+        >
+          <div class="col-12">
+            <input
+              class="form-control"
+              id="validID"
+              type="file"
+              (change)="onSelectImage($event)"
+              accept="image/*"
+              formControlName="validID"
+              placeholder="ID"
+            />
+          </div>
+          <div class="col-md-6"></div>
+          <label for="date" class="form-label"></label>
+          <input
+            type="date"
+            class="form-control"
+            id="date"
+            formControlName="date"
+          />
+          <div class="col-md-6">
+            <label for="time" class="form-label"
+              >Choosen Time For Schedule:</label
+            >
+            <input
+              type="time"
+              class="form-control"
+              id="time"
+              formControlName="time"
+            />
+            <br />
+          </div>
+          <div class="col-md-12 align-end">
+            <button class="btn btn-success" type="submit">
+              Submit Request
+            </button>
+          </div>
+        </form>
+      </div>
+      <br />
+    </div>
+    <div class="banner-area">
+      <div class="wrapper">
+        <br />
+       
+        <h1>PROCEDURE</h1>
+        <div class="banner-text">
+          
+        </div>
+      </div>
+    </div>
+      <div class="text-center">
+        <img
+        src="../../../../assets/images/Burial.png"
+        class="img-fluid"
+        alt="Responsive image"
+      />
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+

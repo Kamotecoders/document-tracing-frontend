@@ -1,0 +1,11 @@
+<button
+  class="btn btn-success"
+  *ngIf="isDone == false; else done"
+  (click)="markAsDone()"
+>
+  Submit Request
+</button>
+
+<ng-template #done>
+  <button class="btn btn-outline-primary" disabled>Submit Done</button>
+</ng-template>

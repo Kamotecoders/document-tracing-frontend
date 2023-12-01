@@ -1,0 +1,27 @@
+.navigation {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: end;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+  padding: 1rem;
+  color: forestgreen;
+}
+
+li a {
+  padding: 1rem;
+  text-align: center;
+}
+
+li a:hover {
+  color: black;
+  cursor: pointer;
+}
+
+main {
+  background-color: #bdd99e;
+}

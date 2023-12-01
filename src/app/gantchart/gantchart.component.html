@@ -1,0 +1,153 @@
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+      <h1 class="mt-4">Data Analytics</h1>
+
+      <div class="container-fluid px-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            Monitoring Appointment Scheduling list
+
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Barangay</th>
+                  <th scope="col">Request</th>
+                  <th scope="col">Pending</th>
+                  <th scope="col">Approved</th>
+
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Adela</th>
+                  <td>10</td>
+                  <td>5</td>
+                  <td>10</td>
+
+                  <td>38</td>
+                </tr>
+                <tr>
+                  <th scope="row">Aguas</th>
+                  <td>5</td>
+                  <td>10</td>
+                  <td>5</td>
+
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <th scope="row">manoot</th>
+                  <td>5</td>
+                  <td>10</td>
+                  <td>5</td>
+
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <th scope="row">Pitogo</th>
+                  <td>5</td>
+                  <td>10</td>
+                  <td>5</td>
+
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <th scope="row">Rizal</th>
+                  <td>5</td>
+                  <td>10</td>
+                  <td>5</td>
+
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <th scope="row">Rumbang</th>
+                  <td>5</td>
+                  <td>10</td>
+                  <td>5</td>
+
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <th scope="row">Salvacion</th>
+                  <td>5</td>
+                  <td>10</td>
+                  <td>5</td>
+
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <th scope="row">San Pedro</th>
+                  <td>5</td>
+                  <td>10</td>
+                  <td>5</td>
+
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sto. Nino</th>
+                  <td>5</td>
+                  <td>10</td>
+                  <td>5</td>
+
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <th scope="row">Magsikap</th>
+                  <td colspan="2">10</td>
+                  <td>5</td>
+
+                  <td>20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="layoutSidenav_content">
+          <main>
+            <div class="container-fluid px-4">
+              <ol class="breadcrumb mb-4"></ol>
+              <div class="card mb-4">
+                <div class="card-body"></div>
+              </div>
+              <div class="card mb-4">
+                <div class="card-header">
+                  <i class="fas fa-chart-area me-1"></i>
+                  GantChart
+                </div>
+                <div class="card-body">
+                  <canvas
+                    baseChart
+                    type="pie"
+                    [datasets]="pieChartDatasets"
+                    [labels]="pieChartLabels"
+                    [options]="pieChartOptions"
+                    [plugins]="pieChartPlugins"
+                    [legend]="pieChartLegend"
+                  >
+                  </canvas>
+                </div>
+                <div class="card-footer small text-muted">
+                  Updated yesterday at 11:59 PM
+                </div>
+
+                <footer class="py-4 bg-light mt-auto">
+                  <div class="container-fluid px-4">
+                    <div
+                      class="d-flex align-items-center justify-content-between small"
+                    >
+                      <div></div>
+                    </div>
+                  </div>
+                </footer>
+              </div>
+
+              <router-outlet></router-outlet>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
