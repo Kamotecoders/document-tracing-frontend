@@ -41,10 +41,16 @@ export class PsaComponent {
       if (dateValue && timeValue) {
         const schedule = new Date(dateValue);
         const [hoursString, minutesString] = timeValue.split(':');
-        const hours = +hoursString;
-        const minutes = +minutesString;
+        const hours = parseInt(hoursString, 10);
+        const minutes = parseInt(minutesString, 10);
+
+        if (isNaN(hours) || isNaN(minutes)) {
+          throw new Error('Invalid time format');
+        }
+
         schedule.setHours(hours);
         schedule.setMinutes(minutes);
+        console.log(schedule);
         this.appointmentService
           .requestPSA(this.validID, schedule, this.id)
           .subscribe({

@@ -85,45 +85,58 @@ export class AdminHomeComponent {
   }
   updateStatus(
     id: number,
+    user_id: number,
+    date: string,
+    time: string,
     status: 'pending' | 'schedulled' | 'cancelled' | 'complete' | 'decline'
   ) {
-    this.appointmentService.updateStatus(id, status).subscribe({
-      next: (v: any) => {
-        this.toastr.success(v['message'], 'success');
-      },
-      error: (e: any) => {
-        this.toastr.error(e.errors.message, 'Error');
-      },
-      complete: () => this.getAllAppointment(),
-    });
+    this.appointmentService
+      .updateStatus(id, user_id, date, time, status)
+      .subscribe({
+        next: (v: any) => {
+          this.toastr.success(v['message'], 'success');
+        },
+        error: (e: any) => {
+          this.toastr.error(e.errors.message, 'Error');
+        },
+        complete: () => this.getAllAppointment(),
+      });
   }
   printPage() {
     const documentToPrint = document.getElementById('appointment');
-
+    const logo = document.getElementById('logo');
     if (documentToPrint) {
       const popupWin = window.open('', '_blank', 'width=800,height=600');
       if (popupWin) {
         popupWin.document.open();
         popupWin.document.write(`
-          <html>
-            <head>
-              <title>Print</title>
-              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-              <style>
-                /* Add your custom styles for printing here */
-                @media print {
-                  body {
-                    margin: 0;
-                    padding: 20px; /* Add padding for better formatting */
-                  }
+        <html>
+          <head>
+            <title>Print</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <style>
+              /* Add your custom styles for printing here */
+              @media print {
+                body {
+                  margin: 0;
+                  padding: 20px; /* Add padding for better formatting */
                 }
-              </style>
-            </head>
-            <body onload="window.print();window.onafterprint=function(){window.close();}">
+                .centered-image {
+                  display: block;
+                  margin: 0 auto; /* Set margins to auto to center the image */
+                }
+              }
+            </style>
+          </head>
+          <body onload="window.print();window.onafterprint=function(){window.close();}">
+            <div style="text-align: center;"> <!-- Center content -->
+              <img src="../../../assets/images/logo.png" class="centered-image" width="100" height="100" />
+              <h5>Appointment Report</h5>
               ${documentToPrint.innerHTML}
-            </body>
-          </html>
-        `);
+            </div>
+          </body>
+        </html>
+      `);
         popupWin.document.close();
       } else {
         console.error('Failed to open popup window for printing.');
@@ -131,5 +144,11 @@ export class AdminHomeComponent {
     } else {
       console.error(`Document with ID 'appointment' not found.`);
     }
+  }
+  statusChecker(status: string) {
+    if (status === 'schedulled') {
+      return 'scheduled';
+    }
+    return status;
   }
 }
