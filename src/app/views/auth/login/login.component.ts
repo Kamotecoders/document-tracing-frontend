@@ -6,6 +6,7 @@ import { Users } from 'src/app/datasource/models/Users';
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 
+import { environment } from 'src/environments/environment.development';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,22 +28,37 @@ export class LoginComponent {
     });
   }
 
+  forgotPassword() {
+    let email: string | null = this.loginForm.get('email')?.value ?? null;
+    if (email != null) {
+      this.authService
+        .forgotPassword(email)
+        .then((data) => {
+          this.toastr.success(`an email sent to : ${email}`);
+        })
+        .catch((err) => {
+          this.toastr.error(err);
+        });
+    } else {
+      this.toastr.error('Enter Email');
+    }
+  }
   onLogin() {
-    this.authService.login(this.loginForm.value).subscribe({
-      next: (v: Users) => {
-        this.localStorageService.saveUser('users', v);
-        if (v.type === 'admin') {
-          this.toastr.success('Successfully Logged in..', 'Welcome admin!');
-          this.router.navigate(['admin']);
-        } else if (v.type === 'user') {
-          this.toastr.success('Successfully Logged in..', 'Welcome client!');
+    const email = this.loginForm.get('email')?.value;
+    const password = this.loginForm.get('password')?.value;
 
-          this.router.navigate(['client']);
-        } else {
-          this.toastr.warning('User not Found', 'Not Found!');
-        }
-      },
-      error: (e) => this.toastr.warning(e.error.message, 'Not Found!'),
-    });
+    this.authService
+      .login(email ?? '', password ?? '')
+      .then((response) => {
+        // this.router.navigate(['/dashboard']);
+        this.router.navigate(['']);
+        this.toastr.success('Login successful', 'Success');
+      })
+      .catch((error) => {
+        // Handle login error
+        console.error('Login error:', error);
+
+        this.toastr.error(error);
+      });
   }
 }

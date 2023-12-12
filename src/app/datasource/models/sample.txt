@@ -1,0 +1,25 @@
+import emailjs from '@emailjs/browser';
+
+ onLogin() {
+    const templateParams = {
+      to_name: 'Juan Dela Cruz',
+      from_name: 'Cardo Dalisay',
+      to_email: 'jmballangca003@gmail.com',
+      message: 'test lang naman',
+    };
+
+    emailjs
+      .send(
+        environment.SERVICE_ID,
+        environment.TEMPLATE_ID,
+        templateParams,
+        environment.PUBLIC_KEY
+      )
+      .then(
+        (response) => {
+          this.toastr.success('Successfully Logged in..', 'Welcome client!');
+        },
+        (err) => {
+          console.log('FAILED...', err);
+        }
+      );

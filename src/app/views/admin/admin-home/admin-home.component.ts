@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Appointment } from 'src/app/datasource/models/Appointments';
+import { Users } from 'src/app/datasource/models/Users';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-admin-home',
@@ -14,11 +16,22 @@ export class AdminHomeComponent {
   _scheduledAppointments: Appointment[] = [];
   _allAppointment: Appointment[] = [];
   _selectedAppointment: Appointment | null = null;
+  users: Users | null;
   constructor(
     private appointmentService: AppointmentService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authService: AuthService
   ) {
     this.getAllAppointment();
+    this.users = null;
+    authService.getCurrentUser().subscribe((data) => {
+      if (data !== null) {
+        authService.getUser(data.uid).then((data) => {
+          this.users = data.data() ?? null;
+          console.log(this.users);
+        });
+      }
+    });
   }
 
   setSelected(index: number) {
@@ -59,17 +72,22 @@ export class AdminHomeComponent {
     }
   }
   updateStatus(
-    id: number,
-    status: 'pending' | 'schedulled' | 'cancelled' | 'complete' | 'decline'
+    id: string,
+    email: string,
+    to_name: string,
+    status: 'pending' | 'scheduled' | 'cancelled' | 'complete' | 'decline',
+    date: string
   ) {
-    this.appointmentService.updateStatus(id, status).subscribe({
-      next: (v: any) => {
-        this.toastr.success(v['message'], 'success');
-      },
-      error: (e: any) => {
-        this.toastr.error(e.errors.message, 'Error');
-      },
-      complete: () => this.getAllAppointment(),
-    });
+    this.appointmentService
+      .updateStatus(
+        id,
+        this.users?.fullname ?? '',
+        to_name,
+        status,
+        email,
+        date
+      )
+      .then((data) => this.toastr.success(`Appointment ${status}`))
+      .catch((err) => this.toastr.error(err));
   }
 }
