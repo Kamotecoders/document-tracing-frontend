@@ -28,6 +28,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component';
 import { GantchartComponent } from './gantchart/gantchart.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +63,21 @@ import { GantchartComponent } from './gantchart/gantchart.component';
     ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    provideFirebaseApp(() =>
+      initializeApp({
+        projectId: 'scheduling-web',
+        appId: '1:105738197933:web:d615209d04d3571d485f24',
+        storageBucket: 'scheduling-web.appspot.com',
+
+        apiKey: 'AIzaSyAChKz4tarBGeDupHdH6rnRKT-xhIERb5g',
+        authDomain: 'scheduling-web.firebaseapp.com',
+        messagingSenderId: '105738197933',
+        measurementId: 'G-EJVLWXY24Y',
+      })
+    ),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent],

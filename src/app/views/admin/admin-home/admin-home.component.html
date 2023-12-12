@@ -123,7 +123,7 @@
                 <span
                   [ngClass]="{
                     ' text-primary  ':
-                      appointment.appointmentStatus === 'schedulled',
+                      appointment.appointmentStatus === 'scheduled',
                     ' text-success ':
                       appointment.appointmentStatus === 'complete',
                     ' text-danger ':
@@ -146,7 +146,14 @@
                 >
                   <button
                     class="btn btn-danger btn-sm"
-                    (click)="updateStatus(appointment.id, 'cancelled')"
+                    (click)="
+                      updateStatus(
+                        appointment.id,
+                        appointment.email,
+                        appointment.fullname,
+                        'cancelled'
+                      )
+                    "
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +173,14 @@
                   </button>
                   <button
                     class="btn btn-success btn-sm"
-                    (click)="updateStatus(appointment.id, 'complete')"
+                    (click)="
+                      updateStatus(
+                        appointment.id,
+                        appointment.email,
+                        appointment.fullname,
+                        'complete'
+                      )
+                    "
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -239,6 +253,20 @@
 
 <app-appointment-form
   [appointment]="_selectedAppointment"
-  (onAccept)="updateStatus(_selectedAppointment?.id ?? 0, 'schedulled')"
-  (onDecline)="updateStatus(_selectedAppointment?.id ?? 0, 'decline')"
+  (onAccept)="
+    updateStatus(
+      _selectedAppointment?.id ?? '',
+      _selectedAppointment?.email ?? '',
+      _selectedAppointment?.fullname ?? '',
+      'scheduled'
+    )
+  "
+  (onDecline)="
+    updateStatus(
+      _selectedAppointment?.id ?? '',
+      _selectedAppointment?.email ?? '',
+      _selectedAppointment?.fullname ?? '',
+      'decline'
+    )
+  "
 ></app-appointment-form>

@@ -1,5 +1,7 @@
+import { QueryDocumentSnapshot } from '@angular/fire/firestore';
+
 export interface Users {
-  id: number;
+  id: string;
   fullname: string;
   address: string;
   gender: string;
@@ -9,5 +11,14 @@ export interface Users {
   phone: string;
   type: string;
   email: string;
-  password: string;
 }
+
+export enum UserType {
+  ADMIN = 'ADMIN',
+  USER = 'USER',
+}
+
+export const userConverter = {
+  toFirestore: (data: Users) => data,
+  fromFirestore: (snap: QueryDocumentSnapshot) => snap.data() as Users,
+};

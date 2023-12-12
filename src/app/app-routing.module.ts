@@ -39,10 +39,10 @@ const routes: Routes = [
         path: '',
         children: [
           { path: '', component: ClientHomeComponent, pathMatch: 'full' },
-          { path: 'voters/:id', component: VotersComponent },
-          { path: 'psa/:id', component: PsaComponent },
-          { path: 'kasalan/:id', component: KasalanComponent },
-          { path: 'burial/:id', component: BurialComponent },
+          { path: 'voters', component: VotersComponent },
+          { path: 'psa', component: PsaComponent },
+          { path: 'kasalan', component: KasalanComponent },
+          { path: 'burial', component: BurialComponent },
         ],
       },
       {
