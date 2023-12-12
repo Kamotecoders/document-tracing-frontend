@@ -47,13 +47,14 @@ export class AppointmentService {
       | 'cancelled'
       | 'complete'
       | 'decline',
-    email: string
+    email: string,
+    date: string
   ) {
     this.sendEmail(
       from_name,
       to_name,
       email,
-      getMessageForStatus(appointmentStatus)
+      getMessageForStatus(date, appointmentStatus)
     );
     return updateDoc(doc(this.firestore, this.COLLECTION_NAME, id), {
       appointmentStatus: appointmentStatus,

@@ -9,6 +9,7 @@ export function getAMPM(timeString: string): string {
 }
 
 export function getMessageForStatus(
+  date: string,
   appointmentStatus:
     | 'pending'
     | 'scheduled'
@@ -20,7 +21,7 @@ export function getMessageForStatus(
     case 'pending':
       return 'Your appointment is pending.';
     case 'scheduled':
-      return 'Your appointment is scheduled.';
+      return 'Your appointment is scheduled. \n date';
     case 'cancelled':
       return 'Your appointment has been cancelled.';
     case 'complete':

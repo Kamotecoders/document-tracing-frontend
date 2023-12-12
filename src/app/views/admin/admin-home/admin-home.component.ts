@@ -75,10 +75,18 @@ export class AdminHomeComponent {
     id: string,
     email: string,
     to_name: string,
-    status: 'pending' | 'scheduled' | 'cancelled' | 'complete' | 'decline'
+    status: 'pending' | 'scheduled' | 'cancelled' | 'complete' | 'decline',
+    date: string
   ) {
     this.appointmentService
-      .updateStatus(id, this.users?.fullname ?? '', to_name, status, email)
+      .updateStatus(
+        id,
+        this.users?.fullname ?? '',
+        to_name,
+        status,
+        email,
+        date
+      )
       .then((data) => this.toastr.success(`Appointment ${status}`))
       .catch((err) => this.toastr.error(err));
   }

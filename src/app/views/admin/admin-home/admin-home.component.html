@@ -151,7 +151,10 @@
                         appointment.id,
                         appointment.email,
                         appointment.fullname,
-                        'cancelled'
+                        'cancelled',
+                        _selectedAppointment?.date +
+                          ' ' +
+                          _selectedAppointment?.time
                       )
                     "
                   >
@@ -178,7 +181,10 @@
                         appointment.id,
                         appointment.email,
                         appointment.fullname,
-                        'complete'
+                        'complete',
+                        _selectedAppointment?.date +
+                          ' ' +
+                          _selectedAppointment?.time
                       )
                     "
                   >
@@ -258,7 +264,8 @@
       _selectedAppointment?.id ?? '',
       _selectedAppointment?.email ?? '',
       _selectedAppointment?.fullname ?? '',
-      'scheduled'
+      'scheduled',
+      _selectedAppointment?.date + ' ' + _selectedAppointment?.time
     )
   "
   (onDecline)="
@@ -266,7 +273,8 @@
       _selectedAppointment?.id ?? '',
       _selectedAppointment?.email ?? '',
       _selectedAppointment?.fullname ?? '',
-      'decline'
+      'decline',
+      _selectedAppointment?.date + ' ' + _selectedAppointment?.time
     )
   "
 ></app-appointment-form>
