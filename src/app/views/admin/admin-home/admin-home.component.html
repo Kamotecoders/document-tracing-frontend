@@ -1,102 +1,98 @@
-<br />
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="16"
-  height="16"
-  fill="currentColor"
-  class="bi bi-list"
-  viewBox="0 0 16 16"
->
-  <path
-    fill-rule="evenodd"
-    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-  />
-</svg>
-<a
-  class="btn btn-secondary"
-  data-bs-toggle="offcanvas"
-  href="#offcanvasExample"
-  role="button"
-  aria-controls="offcanvasExample"
->
-  CATEGORY
-</a>
-
-<div
-  class="offcanvas offcanvas-start"
-  tabindex="-1"
-  id="offcanvasExample"
-  aria-labelledby="offcanvasExampleLabel"
->
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">RIZAL E-SERVICES</h5>
-    <button
-      type="button"
-      class="btn-close text-reset"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
-  </div>
-  <div class="offcanvas-body">
-    <div class="dropdown mt-3">
-      <button
-        class="btn btn-success dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
-        data-bs-toggle="dropdown"
-      >
-        LIST
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li>
-          <a class="dropdown-item">Gant Chart</a>
-        </li>
-
-        <li routerLink="ganchart" routerLinkActive="active"></li>
-
-        <li routerLink="ganchart" routerLinkActive="active"></li>
-
-        <li>
-          <a class="dropdown-item" href="gantchart.component.html"
-            >Data Analytics</a
-          >
-        </li>
-        <li><a class="dropdown-item" href="#">Total</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
 <div class="d-flex gap-3 vh-100 p-3">
   <div class="h-100 w-75">
     <div class="d-flex flex-column h-100 gap-3">
       <div class="row">
         <div class="col">
-          <div class="box bg-success text-white">
+          <div
+            class="box bg-success text-white"
+            (click)="filterAppointmentByType(1)"
+          >
             <h4>{{ getDocumentTypeNumber(1) }}</h4>
             <h6>Voters Certificate</h6>
           </div>
         </div>
         <div class="col">
-          <div class="box bg-primary text-white">
+          <div
+            class="box bg-primary text-white"
+            (click)="filterAppointmentByType(2)"
+          >
             <h4>{{ getDocumentTypeNumber(2) }}</h4>
             <h6>PSA</h6>
           </div>
         </div>
         <div class="col">
-          <div class="box bg-warning text-white">
+          <div
+            class="box bg-warning text-white"
+            (click)="filterAppointmentByType(4)"
+          >
             <h4>{{ getDocumentTypeNumber(4) }}</h4>
             <h6>Burial Assistant</h6>
           </div>
         </div>
         <div class="col">
-          <div class="box bg-danger text-white">
+          <div
+            class="box bg-danger text-white"
+            (click)="filterAppointmentByType(3)"
+          >
             <h4>{{ getDocumentTypeNumber(3) }}</h4>
             <h6>Kasalang bayan</h6>
+          </div>
+          <br />
+          <br />
+          <br />
+        </div>
+
+        <div class="container">
+          <div class="row height d-flex justify-content-left align-items-left">
+            <div class="col-md-4">
+              <div class="input-group">
+                <div class="input-group-btn search-panel"></div>
+                <input
+                  type="hidden"
+                  name="search_param"
+                  value="all"
+                  id="search_param"
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="x"
+                  (keyup)="onSearch($event)"
+                  placeholder="Type Search"
+                />
+
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="box">
+      <button
+        class="btn btn-outline-primary"
+        style="width: 150px; align-items: end"
+        (click)="printPage()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-printer"
+          viewBox="0 0 16 16"
+        >
+          <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1" />
+          <path
+            d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"
+          />
+        </svg>
+        Print
+      </button>
+      <div class="box" id="appointment">
         <h5 class="text-primary">Appointments</h5>
         <table class="table table-hover">
           <thead>
@@ -108,8 +104,6 @@
               <th>Purpose</th>
               <th>Status</th>
               <th>Actions</th>
-              <button id="print-button">Print</button>
-              <div class="alert alert-primary" role="alert">Print Error!</div>
             </tr>
           </thead>
           <tbody *ngFor="let appointment of _scheduledAppointments">
@@ -132,7 +126,7 @@
                       appointment.appointmentStatus === 'cancelled'
                   }"
                 >
-                  {{ appointment.appointmentStatus }}
+                  {{ statusChecker(appointment.appointmentStatus) }}
                 </span>
               </td>
               <td>
@@ -181,7 +175,7 @@
                         appointment.id,
                         appointment.email,
                         appointment.fullname,
-                        'complete',
+                        'cancelled',
                         _selectedAppointment?.date +
                           ' ' +
                           _selectedAppointment?.time

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "scheduling-web": {
+      "hosting": {
+        "document-tracing-frontend": [
+          "scheduling-web"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "scheduling-web"
+  }
+}
