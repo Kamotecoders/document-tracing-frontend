@@ -151,4 +151,11 @@ export class AdminHomeComponent {
     }
     return status;
   }
+
+  onSearch(e: any) {
+    const inputValue: string = e.target.value.toLocaleLowerCase();
+    this._scheduledAppointments = this._allAppointment.filter((data) => {
+      return data.fullname.toLocaleLowerCase().includes(inputValue);
+    });
+  }
 }

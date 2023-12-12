@@ -1,7 +1,7 @@
 <img
-src="../../../../assets/images/voters image.png"
-class="img-fluid"
-alt="Responsive image"
+  src="../../../../assets/images/voters image.png"
+  class="img-fluid"
+  alt="Responsive image"
 />
 
 <div
@@ -15,17 +15,12 @@ alt="Responsive image"
   class="w-full d-flex align-items-center justify-content-center position-relative"
 >
   <div style="min-height: 80vh" class="container-fluid p-4 text-center">
-
-
     <div class="row text-start mt-5 gap-3 justify-content-center">
       <div class="col col-md-5 bg-white p-8">
-    
         <h5>
           Para sa personal na kukuha ng kanilang Voters Certificte paki uplaod
           sa baba ang inyong Valid ID.
         </h5>
-  
-      
 
         <h4>VALID I.D</h4>
         <form
@@ -33,54 +28,76 @@ alt="Responsive image"
           [formGroup]="permissionSlipForm"
           (submit)="submitRequest()"
         >
-          <div class="col-12">
-            <input
-              class="form-control"
-              id="validID"
-              type="file"
-              (change)="onSelectImage($event)"
-              accept="image/*"
-              formControlName="validID"
-              placeholder="ID"
-            />
+          <label for="validID" class="form-label">Upload Valid ID</label>
+          <div class="col-6">
+            <div class="form-floating mb-3">
+              <select
+                class="form-select"
+                id="status"
+                required
+                formControlName="status"
+              >
+                <option selected>--SELECT I.D--</option>
+                <option value="Driver License">Driver License</option>
+                <option value="National I.D">National I.D</option>
+                <option value="Voter's I.D">Voter's I.D</option>
+                <option value="TIN Card">TIN Card</option>
+                <option value="SSS UMID Card">SSS UMID Card</option>
+                <option value="Postal ID">Postal ID</option>
+                <option value="Postal ID">Other's ID</option>
+              </select>
+              <label class="status">Select Valid I.D</label>
+            </div>
+
+            <div class="col-12">
+              <input
+                class="form-control"
+                id="validID"
+                type="file"
+                (change)="onSelectImage($event)"
+                accept="image/*"
+                formControlName="validID"
+                placeholder="ID"
+              />
+            </div>
             <div class="col-md-6"></div>
-            <label for="date" class="form-label"></label>
+            <label for="date" class="form-label">
+              Date Schedule For Appointment:</label
+            >
             <input
               type="date"
               class="form-control"
               id="date"
               formControlName="date"
             />
-            <div class="col-md-6">
-              <label for="time" class="form-label"
-                >Choosen Time For Schedule:</label
-              >
-              <input
-                type="time"
-                class="form-control"
-                id="time"
-                formControlName="time"
-              />
-  
-            </div>
           </div>
+          <div class="col-md-6">
+            <label for="time" class="form-label"
+              >Time Schedule For Appointment:</label
+            >
+            <input
+              type="time"
+              class="form-control"
+              id="time"
+              formControlName="time"
+            />
+          </div>
+          <br />
           <div class="col-md-12 align-end">
             <button class="btn btn-success" type="submit">
-              Submit Request
+              Appointment Request
             </button>
+            <br />
           </div>
         </form>
       </div>
       <br />
       <br />
       <div class="col col-md-6 bg-white p-8">
-    
         <h5>
           Para sa mag papakuha ng Voter Certification paki upload sa ibaba ang
           mga sumusunod:
         </h5>
-
-      
 
         <h5>Authorization Letter</h5>
         <form
@@ -88,41 +105,66 @@ alt="Responsive image"
           [formGroup]="permissionSlipForm"
           (submit)="submitRequest()"
         >
-          <div class="col-12">
-            <input
-              class="form-control"
-              id="validID"
-              type="file"
-              (change)="onSelectImage($event)"
-              accept="image/*"
-              formControlName="validID"
-              placeholder="ID"
-            />
+          <label for="validID" class="form-label">Upload Valid ID</label>
+          <div class="col-6">
+            <div class="form-floating mb-3">
+              <select
+                class="form-select"
+                id="status"
+                required
+                formControlName="status"
+              >
+                <option selected>--SELECT I.D--</option>
+                <option value="Driver License">Driver License</option>
+                <option value="National I.D">National I.D</option>
+                <option value="Voter's I.D">Voter's I.D</option>
+                <option value="TIN Card">TIN Card</option>
+                <option value="SSS UMID Card">SSS UMID Card</option>
+                <option value="Postal ID">Postal ID</option>
+                <option value="Postal ID">Other's ID</option>
+              </select>
+              <label class="status">Select Valid I.D</label>
+            </div>
+
+            <div class="col-12">
+              <input
+                class="form-control"
+                id="validID"
+                type="file"
+                (change)="onSelectImage($event)"
+                accept="image/*"
+                formControlName="validID"
+                placeholder="ID"
+              />
+            </div>
             <div class="col-md-6"></div>
-            <label for="date" class="form-label"></label>
+            <label for="date" class="form-label">
+              Date Schedule For Appointment:</label
+            >
             <input
               type="date"
               class="form-control"
               id="date"
               formControlName="date"
             />
-            <div class="col-md-6">
-              <label for="time" class="form-label"
-                >Choosen Time For Schedule:</label
-              >
-              <input
-                type="time"
-                class="form-control"
-                id="time"
-                formControlName="time"
-              />
-           
-            </div>
           </div>
+          <div class="col-md-6">
+            <label for="time" class="form-label"
+              >Time Schedule For Appointment:</label
+            >
+            <input
+              type="time"
+              class="form-control"
+              id="time"
+              formControlName="time"
+            />
+          </div>
+          <br />
           <div class="col-md-12 align-end">
             <button class="btn btn-success" type="submit">
-              Submit Request
+              Appointment Request
             </button>
+            <br />
           </div>
         </form>
       </div>
@@ -136,7 +178,6 @@ alt="Responsive image"
           <br />
           <br />
           <h1>PROCEDURE</h1>
-          
         </div>
       </div>
 

@@ -57,8 +57,10 @@
                   type="text"
                   class="form-control"
                   name="x"
-                  placeholder="Type Search "
+                  (keyup)="onSearch($event)"
+                  placeholder="Type Search"
                 />
+
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button">
                     <span class="glyphicon glyphicon-search"></span>
