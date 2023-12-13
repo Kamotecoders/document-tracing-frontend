@@ -19,15 +19,18 @@ export function getMessageForStatus(
 ): string {
   switch (appointmentStatus) {
     case 'pending':
-      return 'Your appointment is pending.';
+      return 'Hello there! This is from LGU of Rizal. I would like to inform you that your appointment has been pending.';
     case 'scheduled':
-      return 'Your appointment is scheduled. \n date';
+      return (
+        'Hello there! This is from LGU of Rizal. I would like to inform you that your appointment has been scheduled. \n ' +
+        date
+      );
     case 'cancelled':
-      return 'Your appointment has been cancelled.';
+      return 'Hello there! This is from LGU of Rizal. I would like to inform you that your appointment has been cancelled.';
     case 'complete':
-      return 'Your appointment is complete.';
+      return 'Hello there! This is from LGU of Rizal. I would like to inform you that your appointment has been complete.';
     case 'decline':
-      return 'Your appointment has been declined.';
+      return 'Hello there! This is from LGU of Rizal. I would like to inform you that your appointment has been declined.';
     default:
       return 'Invalid appointment status.';
   }
