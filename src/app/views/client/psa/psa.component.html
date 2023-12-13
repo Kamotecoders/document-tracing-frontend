@@ -1,3 +1,9 @@
+<img
+  src="../../../../assets/images/PSA image.png"
+  class="img-fluid"
+  alt="Responsive image"
+/>
+
 <div
   style="
     min-height: 80vh;
@@ -9,30 +15,17 @@
   class="w-full d-flex align-items-center justify-content-center position-relative"
 >
   <div style="min-height: 80vh" class="container-fluid p-4 text-center">
-    <br />
-    <img
-      src="../../../../assets/images/logo.png"
-      width="100px"
-      height="100px"
-      class="rounded-circle"
-      style="position: absolute; left: 0; z-index: 10"
-    />
-    <br />
-    <h1 class="fw-bold text-white fs-2 mt-1" style="margin-left: 7rem">
-      PSA CERTIFICATE:
-    </h1>
-    <br />
-    <div class="row text-start mt-4 gap-3 justify-content-left">
-      <div class="col col-md-5 bg-white p-7">
-        <h4>Phillipine Statistics Authority</h4>
-        <h4>Online Requirements:</h4>
+    <div class="row text-start mt-6 gap-4 justify-content-center">
+      <div class="col col-md-7 bg-white p-8">
+        <h5>Phillipine Statistics Authority</h5>
+        <h5>Online Requirements:</h5>
         <form
           class="row g-3"
           [formGroup]="permissionSlipForm"
           (submit)="submitRequest()"
         >
           <label for="validID" class="form-label">Upload Valid ID</label>
-          <div class="col-8">
+          <div class="col-6">
             <div class="form-floating mb-3">
               <select
                 class="form-select"
@@ -83,97 +76,39 @@
               formControlName="time"
             />
           </div>
+          <br />
           <div class="col-md-12 align-end">
             <button class="btn btn-success" type="submit">
               Appointment Request
             </button>
+            <br />
           </div>
         </form>
       </div>
       <br />
-      <div class="col col-md-4 bg-success p-4">
-        <p class="px-2 text-white"></p>
+      <div class="col col-md-4 bg-success p-5">
+        <p class="px-3 text-white"></p>
         <br />
         <br />
         <br />
-        <h1 class="fw-bold text-black">
+        <h1 class="fw-bold text-white">
           After uploading Valid ID visit your e-mail Account.
         </h1>
-        <br />
-        <br />
         <br />
       </div>
       <div class="banner-area">
         <div class="wrapper">
+          <br />
+          <br />
           <h1>PROCEDURE</h1>
-          <div class="banner-text">
-            <ul class="text-content">
-              <li class="content">STEP 1</li>
-              <li class="content">STEP2</li>
-              <li class="content">STEP 3</li>
-              <li class="content">STEP 4</li>
-            </ul>
-          </div>
         </div>
       </div>
-      <div class="row text-black justify-content-around gap-3">
-        <div class="row text-start mt-4 gap-3 justify-content-center"></div>
-        <div class="col col-md-3 bg-success p-4">
-          <img
-            src="https://th.bing.com/th/id/OIP.Q5e2itGgPePbI7Rh8ebYjgHaHa?pid=ImgDet&rs=1"
-            class="rounded-circle border"
-            style="height: 100px; width: 100px"
-          />
-          <h4 class="fw-bold">Step 1:</h4>
-          <p class="px-2 text-start"></p>
-          <h5>.Go to MCR Office (Municipal Civil Registrar)</h5>
-          <h4>
-            .Look for Ms. Emie M. Hermoso Municipal Civil Registrar Officer
-          </h4>
-          <div
-            class="btn-group mr-3"
-            role="group"
-            aria-label="First group"
-          ></div>
-        </div>
-        <div class="col col-md-3 bg-success p-4">
-          <img
-            src="https://cdn3.iconfinder.com/data/icons/medical-and-health-1-13/52/83-512.png"
-            class="rounded-circle border"
-            style="height: 100px; width: 100px"
-          />
-          <h4 class="fw-bold">Step 2:</h4>
-          <p class="px-2 text-start"></p>
-          <h5>Fill-up allotted documents</h5>
-          <h5>Prepare Fee’s for different PSA Request:</h5>
-          <h5>CENOMAR (Certificate of No Marriage) - P 210.00</h5>
-          <h5>PSA Birth Certificate P 155.00</h5>
-          <h5>Death Certificate P 155.00</h5>
-          <h5>Marriage Certificate P 155.00</h5>
-          <h5>Service Fee Applicable for ALL PSA Request - P 100.00 ONLY</h5>
-          <div
-            class="btn-group mr-2"
-            role="group"
-            aria-label="First group"
-          ></div>
-        </div>
-        <div class="col col-md-3 bg-success p-4">
-          <img
-            src="https://cdn4.iconfinder.com/data/icons/money-filled-outline/64/money-colored-15-512.png"
-            class="rounded-circle border"
-            style="height: 100px; width: 100px"
-          />
-          <h4 class="fw-bold">Step 3:</h4>
-          <h5>
-            For completing the fill-up forms and preparing fee’s go to
-            Treasurer’s Office for the payment.
-          </h5>
-          <div
-            class="btn-group mr-2"
-            role="group"
-            aria-label="First group"
-          ></div>
-        </div>
+      <div class="text-center">
+        <img
+          src="../../../../assets/images/PSA.png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
       </div>
     </div>
   </div>
